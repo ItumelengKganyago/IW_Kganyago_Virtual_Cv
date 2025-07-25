@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Itumeleng Wonder Kganyago - Web Portfolio</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
+   <!--Betweeen <style> and <style> is the css code-->
+   <style>
         /* Base styles and video background */
         body {
             font-family: 'Inter', sans-serif;
@@ -74,25 +72,32 @@
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+
+        /* Hamburger Menu specific styles */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%); /* Start off-screen */
+        }
+        #mobile-menu.open {
+            transform: translateX(0); /* Slide in */
+        }
     </style>
+    <!--HTML Code-->
 </head>
 <body class="text-gray-200">
 
-    <!-- Background Video and Overlay f -->
     <div id="background-video-container">
         <video autoplay muted loop playsinline id="background-video">
-            <source src="Images\World-Map-Cs-Loop.mp4" type="video/mp4">
+            <source src="Images/World-Map-Cs-Loop.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
     <div id="video-overlay"></div>
 
-    <!-- Sticky Header (Initially Hidden) -->
     <nav id="sticky-header" class="fixed top-[-100px] left-0 right-0 bg-slate-900 bg-opacity-80 backdrop-blur-lg border-b border-slate-700 shadow-lg z-50 p-3">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-3">
-                <img src="Images\My_Pic.jpg" alt="Profile Picture" class="w-10 h-10 rounded-full border-2 border-indigo-400">
-
+                <img src="Images/My_Pic.jpg" alt="Profile Picture" class="w-10 h-10 rounded-full border-2 border-indigo-400">
                 <span class="text-white font-bold text-lg">Itumeleng W. Kganyago</span>
             </div>
             <div class="hidden md:flex items-center space-x-6">
@@ -101,13 +106,34 @@
                 <a href="#projects" class="text-gray-300 hover:text-white transition-colors duration-300">Projects</a>
                 <a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300">Contact</a>
             </div>
+            <div class="md:hidden">
+                <button id="hamburger-button" class="text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <!-- Welcome/Hero Section -->
-<header class="h-screen flex flex-col justify-center items-center text-center p-4 relative z-10">
+    <div id="mobile-menu" class="fixed inset-y-0 right-0 w-64 bg-slate-900 bg-opacity-95 backdrop-blur-lg z-50 p-6 md:hidden shadow-xl">
+        <div class="flex justify-end mb-8">
+            <button id="close-mobile-menu" class="text-white focus:outline-none">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        <nav class="flex flex-col space-y-4 text-center">
+            <a href="#about-me" class="text-gray-300 text-lg hover:text-white transition-colors duration-300 py-2 block mobile-menu-link">About Me</a>
+            <a href="#summary" class="text-gray-300 text-lg hover:text-white transition-colors duration-300 py-2 block mobile-menu-link">Professional Summary</a>
+            <a href="#education" class="text-gray-300 text-lg hover:text-white transition-colors duration-300 py-2 block mobile-menu-link">Education</a>
+            <a href="#skills" class="text-gray-300 text-lg hover:text-white transition-colors duration-300 py-2 block mobile-menu-link">Skills</a>
+            <a href="#certifications" class="text-gray-300 text-lg hover:text-white transition-colors duration-300 py-2 block mobile-menu-link">Certifications</a>
+            <a href="#projects" class="text-gray-300 text-lg hover:text-white transition-colors duration-300 py-2 block mobile-menu-link">Projects</a>
+            <a href="#contact" class="text-gray-300 text-lg hover:text-white transition-colors duration-300 py-2 block mobile-menu-link">Contact</a>
+        </nav>
+    </div>
+
+    <header class="h-screen flex flex-col justify-center items-center text-center p-4 relative z-10">
     <div class="opacity-0 fade-in">
-        <img id="hero-pic" src="Images\My_Pic.jpg" alt="Profile Picture" class="w-40 h-40 rounded-full object-cover shadow-2xl mx-auto border-4 border-indigo-500 ring-4 ring-indigo-500/50">
+        <img id="hero-pic" src="Images/My_Pic.jpg" alt="Profile Picture" class="w-40 h-40 rounded-full object-cover shadow-2xl mx-auto border-4 border-indigo-500 ring-4 ring-indigo-500/50">
     </div>
     <h1 class="text-4xl md:text-6xl font-extrabold text-white mt-6 mb-2 opacity-0 fade-in fade-in-delay-1">
         Itumeleng Wonder Kganyago
@@ -116,41 +142,32 @@
         Welcome to my Digital Portfolio
     </p>
 
-    <!-- Buttons Row -->
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 fade-in fade-in-delay-3">
-        <!-- View My Work Button -->
         <a href="#main-content" class="bg-indigo-600 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-indigo-500 transform hover:scale-105 transition-all duration-300 w-full sm:w-auto">
             <i class="fas fa-arrow-down mr-2"></i> View My Work
         </a>
 
-        <!-- Download CV Button -->
         <a href="Images/CV_Itumeleng_Kganyago.pdf" download class="bg-slate-800 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-slate-700 transform hover:scale-105 transition-all duration-300 w-full sm:w-auto flex items-center justify-center gap-2">
             <i class="fas fa-file-arrow-down text-indigo-400"></i> Download CV
         </a>
 
-        <!-- Social Links -->
         <div class="flex items-center justify-center gap-4">
             <a href="https://www.linkedin.com/in/itumeleng-wonder-kganyago-32336427a" target="_blank" class="text-2xl text-gray-300 hover:text-white transform hover:scale-110 transition-transform duration-300">
                 <i class="fab fa-linkedin"></i>
             </a>
-            <a href="#" target="_blank" class="text-2xl text-gray-300 hover:text-white transform hover:scale-110 transition-transform duration-300">
+            <a href="https://github.com/ItumelengKganyago" target="_blank" class="text-2xl text-gray-300 hover:text-white transform hover:scale-110 transition-transform duration-300">
                 <i class="fab fa-github"></i>
             </a>
         </div>
     </div>
 
-    <!-- Down Arrow Icon -->
     <div class="absolute bottom-10 text-white opacity-0 fade-in fade-in-delay-4">
         <i class="fas fa-chevron-down animate-bounce"></i>
     </div>
 </header>
-
-
-    <!-- Main CV Content Section -->
     <main id="main-content" class="relative z-10 px-4">
         <div class="glass-card shadow-2xl rounded-2xl p-6 md:p-10 max-w-4xl w-full mx-auto my-16">
             
-            <!-- About Me Section -->
             <section id="about-me" class="mb-12">
                 <h2 class="text-3xl font-bold text-white border-b-2 border-indigo-500 pb-3 mb-6">About Me</h2>
                 <p class="text-gray-300 leading-relaxed">
@@ -158,7 +175,6 @@
                 </p>
             </section>
 
-            <!-- Summary Section -->
             <section id="summary" class="mb-12">
                 <h2 class="text-3xl font-bold text-white border-b-2 border-indigo-500 pb-3 mb-6">Professional Summary</h2>
                 <p class="text-gray-300 leading-relaxed">
@@ -166,7 +182,6 @@
                 </p>
             </section>
 
-            <!-- Education Section -->
             <section id="education" class="mb-12">
                 <h2 class="text-3xl font-bold text-white border-b-2 border-indigo-500 pb-3 mb-6">Education</h2>
                 <div class="mb-6 bg-slate-800/50 p-4 rounded-lg shadow-md border border-slate-700 hover:border-indigo-500 transition-all duration-300">
@@ -174,13 +189,19 @@
                         <h3 class="text-xl font-semibold text-white">Bachelor of Science in IT</h3>
                         <span class="text-sm text-gray-400">2022 – 2025 (Current)</span>
                     </div>
-                    <p class="text-indigo-400 font-medium">North-West University (NWU)</p>
+                    <p class="text-indigo-400 font-medium">North-West University (NWU)  <a href="https://www.nwu.ac.za/" target="_blank"> Click For More Info </a></p>
                     <ul class="list-disc list-inside text-gray-300 space-y-1 mt-3 pl-2">
                         <li>Introduction to computing and programming</li>
-                        <li>Structured programming & Object oriented programming</li>
-                        <li>User interface programming & Advanced UI programming</li>
+                        <li>Structured programming </li>
+                        <li>Object oriented programming</li>
+                        <li>User interface programming</li>
+                        <li> Discrete Mathematics</li>
+                        <li>Advanced User Interface programming</li>
                         <li>System analysis and design I & II</li>
-                        <li>Information security & Data Structures and algorithms</li>
+                        <li>Information security</li>
+                        <li>Data Structures and algorithms</li>
+                        <li>Communications skills</li>
+                        <li>Data analytics</li>
                     </ul>
                 </div>
                 <div class="bg-slate-800/50 p-4 rounded-lg shadow-md border border-slate-700 hover:border-indigo-500 transition-all duration-300">
@@ -188,40 +209,35 @@
                         <h3 class="text-xl font-semibold text-white">Matric</h3>
                         <span class="text-sm text-gray-400">2020</span>
                     </div>
-                    <p class="text-indigo-400 font-medium">Nkgopoleng Bakone High School</p>
+                    <p class="text-indigo-400 font-medium">Nkgopoleng Bakone High School.  <a href="https://schoolsdigest.co.za/listings/nkgopoleng-bakone/" target="_blank"> Click For More Info </a> </p>
+                    <li>Sepedi H.L, English F.A.L, LO, Mathematics,</li>
+                    <Li>Life Sciences, Geography, Agricultural Sciences.</Li>
                 </div>
             </section>
 
-            <!-- Skills Section -->
             <section id="skills" class="mb-12">
                 <h2 class="text-3xl font-bold text-white border-b-2 border-indigo-500 pb-3 mb-6">Skills</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <!-- Skill Item -->
                     <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
                         <h4 class="font-semibold text-white mb-1">Programming Languages:</h4>
                         <p class="text-gray-300 text-sm">C++, Java, Python, C# (with ASP.NET)</p>
                     </div>
-                     <!-- Skill Item -->
                     <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
                         <h4 class="font-semibold text-white mb-1">Database & Server Management:</h4>
                         <p class="text-gray-300 text-sm">MS SQL Server, MySQL, PostgreSQL, Oracle</p>
                     </div>
-                     <!-- Skill Item -->
                     <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
                         <h4 class="font-semibold text-white mb-1">Operating Systems:</h4>
                         <p class="text-gray-300 text-sm">Windows, Linux</p>
                     </div>
-                     <!-- Skill Item -->
                     <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
                         <h4 class="font-semibold text-white mb-1">Networking:</h4>
                         <p class="text-gray-300 text-sm">TCP/IP, VPN, LAN/WAN, Packet Tracer</p>
                     </div>
-                     <!-- Skill Item -->
                     <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
                         <h4 class="font-semibold text-white mb-1">Web/App Development:</h4>
                         <p class="text-gray-300 text-sm">C#, .NET MAUI, Java, Python</p>
                     </div>
-                     <!-- Skill Item -->
                     <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
                         <h4 class="font-semibold text-white mb-1">Cybersecurity:</h4>
                         <p class="text-gray-300 text-sm">Vulnerability assessment, firewalls, encryption</p>
@@ -229,9 +245,8 @@
                 </div>
             </section>
 
-            <!-- Certifications Section -->
             <section id="certifications" class="mb-12">
-                <h2 class="text-3xl font-bold text-white border-b-2 border-indigo-500 pb-3 mb-6">Certifications</h2>
+                <h2 class="text-3xl font-bold text-white border-b-2 border-indigo-500 pb-3 mb-6">Certifications From linkedin</h2>
                 <ul class="list-disc list-inside text-gray-300 space-y-2">
                     <li class="hover:text-indigo-400 transition-colors duration-200">AWS Certified Cloud Practitioner (CLF-C02) Cert Prep</li>
                     <li class="hover:text-indigo-400 transition-colors duration-200">Microsoft Azure Fundamentals (AZ 900) Cert Prep</li>
@@ -241,45 +256,144 @@
                 </ul>
             </section>
 
-            <!-- Projects Section -->
             <section id="projects">
                 <h2 class="text-3xl font-bold text-white border-b-2 border-indigo-500 pb-3 mb-6">Projects</h2>
                 <div class="mb-6 bg-slate-800/50 p-4 rounded-lg shadow-md border border-slate-700 hover:border-indigo-500 transition-all duration-300">
                     <h3 class="text-xl font-semibold text-white mb-1">Virtual CV (This Portfolio)</h3>
-                    <p class="text-indigo-400 font-medium mb-3">Individual Project | <a href="#" class="hover:underline">GitHub Repository</a></p>
+                    <p class="text-indigo-400 font-medium mb-3">Individual Project | <a href="https://github.com/ItumelengKganyago/IW_Kganyago_Virtual_Cv" class="hover:underline">GitHub Repository</a></p>
                     <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm">
                         <li>Developed a dynamic, responsive portfolio website from scratch.</li>
-                        <li>Utilizes HTML, Tailwind CSS for styling, and JavaScript for interactivity.</li>
+                        <li>Utilizes HTML, Tailwind CSS for styling, and JavaScript for interactivity using Visual Studio Code.</li>
                         <li>Designed to be visually engaging and user-friendly.</li>
                     </ul>
                 </div>
                 <div class="bg-slate-800/50 p-4 rounded-lg shadow-md border border-slate-700 hover:border-indigo-500 transition-all duration-300">
-                    <h3 class="text-xl font-semibold text-white mb-1">Full-Stack Web App</h3>
-                    <p class="text-indigo-400 font-medium mb-3">Group Project | <a href="#" class="hover:underline">GitHub Repository</a></p>
-                     <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm">
-                        <li>Collaborated in a team to build a full-stack web application.</li>
-                        <li>*(Remember to add specific details, tech used, and your role)*</li>
+                    <h3 class="text-xl font-semibold text-white mb-1">Full-Stack Voting System App</h3>
+                    <p class="text-indigo-400 font-medium mb-3">Group Project | <a href="https://github.com/lethabomaepa11/Votex_Prototype" class="hover:underline">GitHub Repository</a></p>
+                    <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm">
+                        <li>Collaborated in a team to build a Voting system for University elections.</li>
+                        <li>The app utilizes CSS, HTML and JAVA develeoped using ANDROID STUDIO</li>
+                        <li>Designed to be visually engaging and user-friendly.</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-800/50 p-4 rounded-lg shadow-md border border-slate-700 hover:border-indigo-500 transition-all duration-300">
+                    <h3 class="text-xl font-semibold text-white mb-1">E Commerce System</h3>
+                    <p class="text-indigo-400 font-medium mb-3">Group Project | <a href="https://github.com/tibz-dev/MM-TECH-E-COMMERCE-SYSTEM" class="hover:underline">GitHub Repository</a></p>
+                    <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm">
+                        <li>Collaborated in a team to build a system that will be used for selling between seller and buyer.</li>
+                        <li>The web application utililizes C# and was developed using WINDOWS FORM APP in VISUAL STUDIO 2022 </li>
+                        <li>Designed to be visually engaging and user-friendly.</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-800/50 p-4 rounded-lg shadow-md border border-slate-700 hover:border-indigo-500 transition-all duration-300">
+                    <h3 class="text-xl font-semibold text-white mb-1">Network System</h3>
+                    <p class="text-indigo-400 font-medium mb-3">Group Project | <a href="https://github.com/tumiiiey2323/theNetworkDr" class="hover:underline">GitHub Repository</a></p>
+                    <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm">
+                        <li>Collaborated in a team to build a full network system that will be used by network architects to develop a network in a company.</li>
+                        <li>The network system was Fully developed using Packet Tracer</li>
+                        <li>Designed to be cost effective while being able to perform daily business operations</li>
                     </ul>
                 </div>
             </section>
         </div>
     </main>
 
-    <!-- Footer / Contact Section -->
     <footer id="contact" class="text-center p-10 border-t border-slate-800">
         <p class="text-gray-400 mb-2">Get in touch:</p>
-        <a href="mailto:Wonderkganyagocr7@gmail.com" class="text-indigo-400 hover:text-indigo-300 text-lg transition-colors">Wonderkganyagocr7@gmail.com</a>
+        <a href="mailto:Wonderkganyagocr7@gmail.com" class="text-indigo-400 hover:text-indigo-300 text-lg transition-colors">
+            Wonderkganyagocr7@gmail.com
+        </a>
         <div class="flex items-center justify-center gap-5 mt-4">
             <a href="https://www.linkedin.com/in/itumeleng-wonder-kganyago-32336427a" target="_blank" class="text-2xl text-gray-400 hover:text-white transition-all duration-300">
                 <i class="fab fa-linkedin"></i>
             </a>
-            <a href="#" target="_blank" class="text-2xl text-gray-400 hover:text-white transition-all duration-300">
+            <a href="https://github.com/ItumelengKganyago" target="_blank" class="text-2xl text-gray-400 hover:text-white transition-all duration-300">
                 <i class="fab fa-github"></i>
             </a>
+            <a href="https://www.instagram.com/kganyago_itu?igsh=MXFsOXRyMTRwZzZlMQ==" target="_blank" class="text-2xl text-gray-400 hover:text-white transition-all duration-300">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61571324030547" target="_blank" class="text-2xl text-gray-400 hover:text-white transition-all duration-300">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://wa.me/qr/2CEQ2VLILV7NF1" target="_blank" class="text-2xl text-gray-400 hover:text-white transition-all duration-300">
+            <i class="fab fa-whatsapp"></i>
+            </a>
         </div>
-        <p class="text-gray-600 text-sm mt-8">&copy; 2024 Itumeleng Wonder Kganyago. All Rights Reserved.</p>
+        <p class="text-gray-600 text-sm mt-8">&copy; 2025 Itumeleng Wonder Kganyago. All Rights Reserved.</p>
     </footer>
+    <!--Betweeen <script> and <script> is the javascript code-->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const stickyHeader = document.getElementById('sticky-header');
+            const heroSection = document.querySelector('header');
+            const hamburgerButton = document.getElementById('hamburger-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+            const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
 
-    <script src="script.js"></script>
+            // Sticky Header Logic
+            // The header will appear when the top of the hero section is 50% out of view
+            const observerOptions = {
+                root: null, // relative to the viewport
+                rootMargin: '0px',
+                threshold: 0.5 
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        stickyHeader.style.top = '-100px'; // Hide sticky header (move it off-screen)
+                    } else {
+                        stickyHeader.style.top = '0'; // Show sticky header (move it to the top)
+                    }
+                });
+            }, observerOptions);
+
+            if (heroSection) {
+                observer.observe(heroSection);
+            }
+
+            // Smooth scrolling for desktop navigation links in the sticky header
+            document.querySelectorAll('#sticky-header a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault(); // Prevent default jump
+                    const targetId = this.getAttribute('href'); // Get the href value (e.g., "#about-me")
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth' // Smooth scroll to the target section
+                    });
+                });
+            });
+
+            // Hamburger Menu Logic
+            hamburgerButton.addEventListener('click', () => {
+                mobileMenu.classList.add('open'); // Add 'open' class to slide in the mobile menu
+            });
+
+            closeMobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.remove('open'); // Remove 'open' class to slide out the mobile menu
+            });
+
+            // Close mobile menu and smooth scroll when a link inside it is clicked
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault(); // Prevent default jump
+                    const targetId = this.getAttribute('href'); // Get the href value
+                    mobileMenu.classList.remove('open'); // Close the mobile menu
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth' // Smooth scroll to the target section
+                    });
+                });
+            });
+
+            // Smooth scroll for the "View My Work" button in the hero section
+            document.querySelector('a[href="#main-content"]').addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default jump
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth' // Smooth scroll to the main content
+                });
+            });
+        });
+    </script>
 </body>
 </html>
